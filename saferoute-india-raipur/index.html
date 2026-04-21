@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SafeRoute Raipur – Women Safety Navigator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+
+    <header class="app-header">
+      <div class="header-left">
+        <h1>SafeRoute – Raipur</h1>
+        <p>AI-assisted routing with a dedicated focus on women’s safety</p>
+      </div>
+      <div class="header-right">
+        <div class="badge">AI model: Logistic Regression</div>
+        <div class="sub-badge">Live route scoring using hotspots & context</div>
+      </div>
+    </header>
+
+
+    <div class="app-body">
+
+      <aside class="sidebar">
+
+        <section class="panel">
+          <h2>Route setup</h2>
+          <p class="hint">
+            Set your start and destination in Raipur using search, map click or your current location.
+          </p>
+
+          <div class="search-group">
+            <label for="start-search">Start location</label>
+            <div class="search-row">
+              <input id="start-search" type="text" class="text-input" placeholder="Area / landmark in Raipur" />
+              <button id="btn-search-start" class="btn secondary">Search</button>
+            </div>
+            <ul id="start-suggestions" class="suggestions-list"></ul>
+            <p class="search-hint">
+              You can also click on the map to drop the start marker.
+            </p>
+          </div>
+
+          <div class="buttons">
+            <button id="btn-locate" class="btn secondary">
+              Use my current location
+            </button>
+          </div>
+
+          <div class="search-group">
+            <label for="end-search">Destination</label>
+            <div class="search-row">
+              <input id="end-search" type="text" class="text-input" placeholder="Area / landmark in Raipur" />
+              <button id="btn-search-end" class="btn secondary">Search</button>
+            </div>
+            <ul id="end-suggestions" class="suggestions-list"></ul>
+            <p class="search-hint">
+              Or click on the map to choose your destination.
+            </p>
+          </div>
+
+
+          <div class="coords">
+            <div><strong>Start:</strong> <span id="start-coords">Not set</span></div>
+            <div><strong>End:</strong> <span id="end-coords">Not set</span></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Time of travel</h2>
+          <div class="time-group">
+            <label for="time-select" class="time-label">When are you travelling?</label>
+            <select id="time-select" class="time-select">
+              <option value="day">Daytime (7 AM – 6 PM)</option>
+              <option value="evening">Evening (6 PM – 10 PM)</option>
+              <option value="night">Late night (10 PM – 5 AM)</option>
+            </select>
+            <p class="time-hint">
+              At night the model increases risk for dark, isolated and harassment-prone stretches.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Actions</h2>
+          <div class="buttons">
+            <button id="btn-find" class="btn primary">
+              Find safest route for women
+            </button>
+            <button id="btn-clear" class="btn secondary">
+              Clear route & inputs
+            </button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>AI safety analysis</h2>
+          <div id="safety-summary" class="summary-card" style="margin-top:10px;">
+            <p>No route evaluated yet.</p>
+          </div>
+        </section>
+
+        <div id="crowd-panel" class="panel" style="display: none;">
+          <h2>Report road safety</h2>
+          <p class="hint">Help others by reporting what you observed on this route.</p>
+
+          <label class="report-label">How safe did it feel?</label>
+          <div class="report-buttons">
+            <button class="btn crowd-btn safe" data-rating="safe">Safe</button>
+            <button class="btn crowd-btn ok" data-rating="ok">Okay</button>
+            <button class="btn crowd-btn unsafe" data-rating="unsafe">Unsafe</button>
+          </div>
+
+          <label class="report-label">Issue observed (optional)</label>
+          <select id="crowd-issue" class="text-input">
+            <option value="">None</option>
+            <option value="harassment">Harassment</option>
+            <option value="stalking">Stalking</option>
+            <option value="eve_teasing">Eve teasing</option>
+            <option value="dark_area">Dark / Poor lighting</option>
+            <option value="isolated">Isolated stretch</option>
+            <option value="drunk_groups">Drunk groups</option>
+            <option value="road_rash">Rash driving</option>
+            <option value="pickpocketing">Pickpocketing</option>
+            <option value="robbery">Robbery attempt</option>
+          </select>
+
+          <label class="report-label">Comments (optional)</label>
+          <textarea id="crowd-comment" class="text-input" rows="3" placeholder="Describe what you saw..."></textarea>
+
+          <button id="crowd-submit" type="button" class="btn primary" style="margin-top:10px;">
+            Submit Report
+          </button>
+
+          <p id="crowd-status" style="font-size:0.75rem; margin-top:8px; color:#9ca3af;"></p>
+        </div>
+
+
+        <section class="panel">
+          <h2>Map legend</h2>
+          <ul class="legend">
+            <li>
+              <span class="legend-line safest"></span>
+              <span>Safest route (selected by AI)</span>
+            </li>
+            <li>
+              <span class="legend-line other"></span>
+              <span>Alternative route</span>
+            </li>
+            <li>
+              <span class="legend-color legend-severity-3"></span>
+              <span>High-risk women-safety hotspot</span>
+            </li>
+            <li>
+              <span class="legend-color legend-severity-2"></span>
+              <span>Medium-risk hotspot</span>
+            </li>
+            <li>
+              <span class="legend-color legend-severity-1"></span>
+              <span>Low-risk hotspot</span>
+            </li>
+          </ul>
+          <p class="legend-note">
+            Hotspots include harassment, dark stretches, robberies, theft and accident-prone zones.
+          </p>
+        </section>
+      </aside>
+
+
+      <main class="map-container">
+        <div id="map"></div>
+      </main>
+    </div>
+
+    <footer class="app-footer">
+      SafeRoute Raipur &mdash; AI-assisted safety scoring built on OpenStreetMap, OSRM and
+      hotspot data. Scores are estimates to assist judgement, not absolute guarantees.
+    </footer>
+  </div>
+
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

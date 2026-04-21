@@ -1,0 +1,14 @@
+{
+  "time_categories": ["day", "evening", "night"],
+  "coef": [
+    0.0,    
+    0.25,  
+    0.60,   
+    0.15,  
+    0.12,   
+    0.20,   
+    0.08,   
+    0.03   
+  ],
+  "intercept": -1.2
+}

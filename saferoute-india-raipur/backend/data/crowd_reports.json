@@ -1,0 +1,142 @@
+{
+  "21.2613,81.6192->21.2267,81.6199": [
+    {
+      "routeId": "21.2613,81.6192->21.2267,81.6199",
+      "createdAt": "2025-11-23T15:51:49.051Z",
+      "feeling": "ok",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.2635,81.6193->21.2209,81.6283": [
+    {
+      "routeId": "21.2635,81.6193->21.2209,81.6283",
+      "createdAt": "2025-11-23T15:52:24.680Z",
+      "feeling": "ok",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.2489,81.6067->21.2561,81.6297": [
+    {
+      "routeId": "21.2489,81.6067->21.2561,81.6297",
+      "createdAt": "2025-11-23T15:53:32.046Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.24096,81.60630->21.22559,81.62226": [
+    {
+      "routeId": "21.24096,81.60630->21.22559,81.62226",
+      "createdAt": "2025-11-23T17:42:51.102Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.23744,81.59308->21.22959,81.62964": [
+    {
+      "routeId": "21.23744,81.59308->21.22959,81.62964",
+      "createdAt": "2025-11-23T17:54:51.319Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.23648,81.61110->21.22671,81.62226": [
+    {
+      "routeId": "21.23648,81.61110->21.22671,81.62226",
+      "createdAt": "2025-11-23T17:57:44.758Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.26222,81.60938->21.25197,81.61402": [
+    {
+      "routeId": "21.26222,81.60938->21.25197,81.61402",
+      "createdAt": "2025-11-23T18:04:30.444Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.23644,81.60647->21.22700,81.62140": [
+    {
+      "routeId": "21.23644,81.60647->21.22700,81.62140",
+      "createdAt": "2025-11-23T18:06:36.977Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.23824,81.60990->21.23039,81.61934": [
+    {
+      "routeId": "21.23824,81.60990->21.23039,81.61934",
+      "createdAt": "2025-11-23T18:40:27.020Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.23760,81.60647->21.22238,81.62020": [
+    {
+      "routeId": "21.23760,81.60647->21.22238,81.62020",
+      "createdAt": "2025-11-23T18:46:20.999Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.28770,81.66774->21.24528,81.62981": [
+    {
+      "routeId": "21.28770,81.66774->21.24528,81.62981",
+      "createdAt": "2025-11-23T18:58:32.662Z",
+      "feeling": "ok",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.24316,81.63542->21.22975,81.64001": [
+    {
+      "routeId": "21.24316,81.63542->21.22975,81.64001",
+      "createdAt": "2025-11-23T19:03:57.640Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "night",
+      "comment": null
+    }
+  ],
+  "21.23872,81.61247->21.22527,81.62706": [
+    {
+      "routeId": "21.23872,81.61247->21.22527,81.62706",
+      "createdAt": "2025-11-23T19:53:42.366Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ],
+  "21.24453,81.59520->21.25613,81.59800": [
+    {
+      "routeId": "21.24453,81.59520->21.25613,81.59800",
+      "createdAt": "2026-04-09T17:48:09.614Z",
+      "feeling": "safe",
+      "issueType": null,
+      "timeBand": "day",
+      "comment": null
+    }
+  ]
+}
