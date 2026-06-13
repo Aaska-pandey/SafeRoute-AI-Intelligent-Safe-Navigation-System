@@ -158,12 +158,5 @@ While building this project, I gained hands-on experience in:
 
 ---
 
-## 🤝 Contribution
-
-Suggestions, improvements, and contributions are always welcome.
-
-If you have ideas to make SafeRoute AI more effective and impactful, feel free to open an issue or submit a pull request.
-
----
 
 
